@@ -34,3 +34,22 @@ post '/store/:id/shoe/new' do
   store.shoes << new_shoe;
   redirect "/store/#{store.id}"
 end
+
+#STORE EDIT
+get "/store/:id/edit" do
+  @store = Store.find(params['id'])
+  erb :store_edit
+end
+
+patch "/store/:id/edit" do
+  store = Store.find(params['id'])
+  new_name = params['name']
+  store.update(name: new_name)
+  redirect "/store/#{store.id}/edit"
+end
+
+delete "/store/:id/delete" do
+  store = Store.find(params['id'])
+  store.destroy
+  redirect "/"
+end
