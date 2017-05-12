@@ -4,6 +4,12 @@
 
 <ul>
   <% @shoes.each do |shoe| %>
-    <a href="/shoe/<%= shoe.id %>"><li><%= shoe.name %></li></a>
+    <a href="/shoe/<%= shoe.id %>"><li><%= shoe.brand %> | <%= shoe.price%></li></a>
   <% end %>
 </ul>
+
+<form action="/store/<%= @store.id %>/shoe/new" method="post">
+  <input type="text" name="shoe_brand" placeholder="Enter a shoe brand">
+  <input type="text" name="shoe_price" placeholder="Enter the shoe price">
+  <button type="submit">Add shoe</button>
+</form>

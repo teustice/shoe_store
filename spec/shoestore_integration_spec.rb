@@ -16,7 +16,17 @@ describe("the /store/:id", {:type => :feature}) do
     click_link("Nike")
     expect(page).to have_content("Nike")
   end
+
+  it("adds a shoe to the store") do
+    visit("/")
+    click_link("Nike")
+    fill_in("shoe_brand", :with => "Converse")
+    fill_in("shoe_price", :with => "40")
+    click_button("Add shoe")
+    expect(page).to have_content("Converse")
+  end
 end
+
 # describe("the phrase parser path", {:type => :feature}) do
 #   it("processes the user input and returns correct message if its a palindrome") do
 #     visit("/")

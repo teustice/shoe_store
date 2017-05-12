@@ -24,3 +24,13 @@ get "/store/:id" do
   @shoes = @store.shoes
   erb :store
 end
+
+#ADD SHOE
+post '/store/:id/shoe/new' do
+  store = Store.find(params['id'])
+  brand = params['shoe_brand']
+  price = params['shoe_price']
+  new_shoe = Shoe.find_or_create_by(brand: brand, price: price)
+  store.shoes << new_shoe;
+  redirect "/store/#{store.id}"
+end
