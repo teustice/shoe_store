@@ -1,5 +1,5 @@
 <h1>Shoe brand: <%= @shoe.brand %></h1>
-<h3>Shoe price: <%= @shoe.price %></h3>
+<h3>Shoe price: $<%= @shoe.price %></h3>
 <hr><br>
 <form action="/store/<%= @store.id %>/shoe/<%= @shoe.id %>/edit" method="post">
   <input type="hidden" name="_method" value="patch">

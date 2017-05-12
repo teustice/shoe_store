@@ -18,4 +18,11 @@ describe Shoe do
       expect(shoe.brand).to eq "Some Shoe"
     end
   end
+
+  describe('#monify') do
+    it "should format input to be currency" do
+      shoe = Shoe.create(brand: "some shoe", price: 50)
+      expect(shoe.price).to eq 50.00
+    end
+  end
 end

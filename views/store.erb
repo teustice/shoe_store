@@ -4,7 +4,7 @@
 
 <ul>
   <% @shoes.each do |shoe| %>
-    <a href="/store/<%= @store.id %>/shoe/<%= shoe.id %>"><li><%= shoe.brand %> | <%= shoe.price%></li></a>
+    <a href="/store/<%= @store.id %>/shoe/<%= shoe.id %>"><li><%= shoe.brand %> | $<%= shoe.price%></li></a>
   <% end %>
 </ul>
 

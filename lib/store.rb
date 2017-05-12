@@ -4,10 +4,10 @@ class Store < ActiveRecord::Base
   before_save(:capitalize)
 
   define_method(:capitalize) do
-      words = self.name.split(" ")
-      words.each do |word|
-        word.capitalize!()
-      end
-      self.name=(words.join(" "))
+    words = self.name.split(" ")
+    words.each do |word|
+      word.capitalize!()
+    end
+    self.name=(words.join(" "))
   end
 end
