@@ -30,9 +30,9 @@ describe("the /store/:id", {:type => :feature}) do
     visit("/")
     click_link("Nike")
     click_link("Edit store")
-    fill_in("name", :with => "The new Nike")
+    fill_in("name", :with => "the new nike")
     click_button("Edit")
-    expect(page).to have_content("The new Nike")
+    expect(page).to have_content("The New Nike")
   end
 
   it("deletes a store") do
@@ -65,7 +65,7 @@ describe("the /store/shoe path", {:type => :feature}) do
     fill_in("shoe_brand", :with => "The new Converse")
     fill_in("shoe_price", :with => "45")
     click_button("Update")
-    expect(page).to have_content("The new Converse")
+    expect(page).to have_content("The New Converse")
   end
 
   it("deletes a shoe") do
