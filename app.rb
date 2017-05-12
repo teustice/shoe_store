@@ -17,3 +17,10 @@ post "/store/new" do
   Store.find_or_create_by(name: name)
   redirect "/"
 end
+
+#STORE PAGE
+get "/store/:id" do
+  @store = Store.find(params['id'])
+  @shoes = @store.shoes
+  erb :store
+end
