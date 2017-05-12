@@ -34,4 +34,12 @@ describe("the /store/:id", {:type => :feature}) do
     click_button("Edit")
     expect(page).to have_content("The new Nike")
   end
+
+  it("deletes a store") do
+    visit("/")
+    click_link("Nike")
+    click_link("Edit store")
+    click_button("Delete")
+    expect(page).to have_no_content("Nike")
+  end
 end
