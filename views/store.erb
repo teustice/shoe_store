@@ -9,7 +9,7 @@
 </ul>
 
 <form action="/store/<%= @store.id %>/shoe/new" method="post">
-  <input type="text" name="shoe_brand" placeholder="Enter a shoe brand">
-  <input type="text" name="shoe_price" placeholder="Enter the shoe price">
+  <input type="text" name="shoe_brand" placeholder="Enter a shoe brand" required>
+  <input type="text" name="shoe_price" placeholder="Enter the shoe price" required>
   <button type="submit">Add shoe</button>
 </form>
