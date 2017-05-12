@@ -11,4 +11,5 @@ gem "pry"
 group :test do
   gem "rspec"
   gem "capybara"
+  gem "shoulda-matchers", '~> 2.0'
 end
