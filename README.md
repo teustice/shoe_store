@@ -1,54 +1,42 @@
-# <!--PROJECT NAME HERE-->
+# Shoe Distributors
 
-<!--PROJECT DESCRIPTION HERE-->
+This application tracks multiple shoe distributors, and keeps track of their current inventory.
 
 ### Prerequisites
 
 Web browser with ES6 compatibility
 Examples: Chrome, Safari
 
-Ruby <!--VERSION HERE-->
+Ruby 3.2.1
 Bundler
 
-### Installing
+## Setup/Installation Requirements
+_run 'bundle' in the project directory to install gem dependencies_
+_Start a postgres server_
+_In the project directory run 'rake db:schema:load' to set up the database_
+_start a development server by running 'ruby app.rb' in the project directory_
 
-Installation is quick and easy! First you can open this link <!--HEROKU LINK HERE--> to see the webpage in action live online. Or you can clone this repository to your machine, navigate to the file path in your terminal, and run 'app.rb' by typing '$ruby app.rb'. If you chose to clone the repository, after you run 'app.rb' you will need to copy the localhost path into your web browser. The standard localhost for Sinatra is port 4567
 
-## Built With
+## Known Bugs
 
-* Ruby
-* Sinatra
-* HTML
-* CSS
-* Bootstrap https://getbootstrap.com/
-* ES6
-* Jquery https://jquery.com/
+_There are currently no known bugs_
 
-## Authors
+## Support and contact details
 
-* <!--YOUR NAME HERE-->
+_If you have any questions, contact me at teustice@msn.com_
 
-## License
+## Technologies Used
 
-MIT License
+* _HTML_
+* _CSS_
+* _Ruby_
+* _Sinatra_
+* _Rspec_
+* _Capybara_
+* _Postgres_
 
-Copyright (c) <!--YOUR NAME & YEAR HERE-->
+### License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+*MIT*
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
+Copyright (c) 2017 **_Tanner Eustice_**

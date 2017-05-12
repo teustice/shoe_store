@@ -1,7 +1,8 @@
-<h1>Shoe Stores</h1>
-<br>
+<h1>Shoe Distributors</h1>
+<hr>
 
 <% if @stores.any? %>
+  <h4>Select a distributor for more information: </h4>
   <ul>
     <% @stores.each do |store| %>
       <a href="/store/<%= store.id %>"><li><%= store.name %></li></a>
