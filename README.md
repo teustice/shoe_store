@@ -14,7 +14,7 @@ Bundler
 * _run 'bundle' in the project directory to install gem dependencies_
 * _Start a postgres server_
 * _run 'rake db:create' to generate the database_
-* _In the project directory run 'rake db:schema:load' to set up the tables
+* _In the project directory run 'rake db:schema:load' to set up the tables_
 * _start a development server by running 'ruby app.rb' in the project directory_
 * _the app should now be visible at localhost:4567_
 
