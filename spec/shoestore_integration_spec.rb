@@ -43,3 +43,39 @@ describe("the /store/:id", {:type => :feature}) do
     expect(page).to have_no_content("Nike")
   end
 end
+
+describe("the /store/shoe path", {:type => :feature}) do
+  it("goes to a shoe page") do
+    visit("/")
+    click_link("Nike")
+    fill_in("shoe_brand", :with => "Converse")
+    fill_in("shoe_price", :with => "40")
+    click_button("Add shoe")
+    click_link("Converse")
+    expect(page).to have_content("Converse")
+  end
+
+  it("edits a shoe") do
+    visit("/")
+    click_link("Nike")
+    fill_in("shoe_brand", :with => "Converse")
+    fill_in("shoe_price", :with => "40")
+    click_button("Add shoe")
+    click_link("Converse")
+    fill_in("shoe_brand", :with => "The new Converse")
+    fill_in("shoe_price", :with => "45")
+    click_button("Update")
+    expect(page).to have_content("The new Converse")
+  end
+
+  it("deletes a shoe") do
+    visit("/")
+    click_link("Nike")
+    fill_in("shoe_brand", :with => "Converse")
+    fill_in("shoe_price", :with => "40")
+    click_button("Add shoe")
+    click_link("Converse")
+    click_button("Delete")
+    expect(page).to have_no_content("Converse")
+  end
+end

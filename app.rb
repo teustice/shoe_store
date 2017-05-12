@@ -53,3 +53,26 @@ delete "/store/:id/delete" do
   store.destroy
   redirect "/"
 end
+
+#SHOE PAGE
+get "/store/:store_id/shoe/:shoe_id" do
+  @shoe = Shoe.find(params['shoe_id'])
+  @store = Store.find(params['store_id'])
+  erb :shoe
+end
+
+patch "/store/:store_id/shoe/:shoe_id/edit" do
+  shoe = Shoe.find(params['shoe_id'])
+  store = Store.find(params['store_id'])
+  brand = params['shoe_brand']
+  price = params['shoe_price']
+  shoe.update(brand: brand, price: price)
+  redirect "store/#{store.id}/shoe/#{shoe.id}"
+end
+
+delete "/store/:store_id/shoe/:shoe_id/delete" do
+  shoe = Shoe.find(params['shoe_id'])
+  store = Store.find(params['store_id'])
+  shoe.destroy
+  redirect "/store/#{store.id}"
+end
