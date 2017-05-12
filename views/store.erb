@@ -1,19 +1,36 @@
 <h1><%= @store.name %></h1>
-<a href="/store/<%= @store.id %>/edit">Edit store</a>
+<a id="edit-store" href="/store/<%= @store.id %>/edit">
+  <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f4 " type="button" value="Edit store">
+</a>
 <h3>Shoes available at this location:</h3>
 <br>
 <% if @shoes.any? %>
-  <ul>
+  <ul class="list pl0 measure">
     <% @shoes.each do |shoe| %>
-    <a href="/store/<%= @store.id %>/shoe/<%= shoe.id %>"><li><%= shoe.brand %> | <%= shoe.display_price%></li></a>
+      <a href="/store/<%= @store.id %>/shoe/<%= shoe.id %>" class="f4 fw6 db black link hover-green"><li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30"><%= shoe.brand %> | <%= shoe.display_price %></li></a>
     <% end %>
   </ul>
 <% else %>
   <p><em>There are currently no shoes at this location, add one below!</em></p>
 <% end %>
 <br><hr>
-<form action="/store/<%= @store.id %>/shoe/new" method="post">
-  <input type="text" name="shoe_brand" placeholder="Enter a shoe brand" required>
-  <input type="text" name="shoe_price" placeholder="Enter the shoe price" required>
-  <button type="submit">Add shoe</button>
+<form class="pa1 black-80" action="/store/<%= @store.id %>/shoe/new" method="post">
+  <div class="measure">
+    <h3>Add a shoe to this location:</h3>
+    <div class="mw8 center pt0 pb5 pv5-m pv1-ns">
+      <div class="db dtc-ns v-mid-ns">
+        <label for="shoe_brand">Brand</label>
+        <input name="shoe_brand" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
+        <small id="name-desc" class="f4 black-60 db mb2">Enter a shoe brand</small>
+      </div>
+      <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
+        <label for="price">Price</label>
+        <input name="shoe_price" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
+        <small id="name-desc" class="f4 black-60 db mb2">Enter a shoe price</small>
+      </div>
+      <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
+        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f4 dib" type="submit" value="Add shoe">
+      </div>
+    </div>
+  </div>
 </form>

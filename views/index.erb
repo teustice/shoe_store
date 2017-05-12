@@ -1,15 +1,16 @@
-<h1>Shoe Distributors</h1>
-<hr>
+<h1 class="f3 f1-m f-headline-l">Shoe Distributors</h1>
 
 <% if @stores.any? %>
   <h4>Select a distributor for more information: </h4>
-  <ul>
-    <% @stores.each do |store| %>
-      <a href="/store/<%= store.id %>"><li><%= store.name %></li></a>
-    <% end %>
-  </ul>
+  <br>
+    <ul class="list pl0 measure">
+      <% @stores.each do |store| %>
+        <a href="/store/<%= store.id %>" class="f4 fw6 db black link hover-green"><li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30"><%= store.name %></li></a>
+      <% end %>
+    </ul>
 <% else %>
   <p>
     <em>There are currently no stores. Would you like to <a href="/store/new">add one</a>?</em>
   </p>
 <% end %>
+<br>

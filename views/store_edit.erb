@@ -1,14 +1,24 @@
 <h1>Edit <%= @store.name %></h1>
 
-<form action="/store/<%= @store.id %>/edit" method="post">
+<form class="pa1 black-80" action="/store/<%= @store.id %>/edit" method="post">
   <input type="hidden" name="_method" value="patch">
-  <label for="name">Edit store name:</label>
-  <input type="text" name="name" value="<%= @store.name %>">
-  <button type="submit">Edit</button>
+  <div class="measure">
+    <div class="mw8 center pt0 pb5 pv5-m pv1-ns">
+      <div class="db dtc-ns v-mid-ns">
+        <label for="name">Name</label>
+        <input name="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
+        <small id="name-desc" class="f4 black-60 db mb2">Update the store name here</small>
+      </div>
+      <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
+        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f4 dib" type="submit" value="Edit">
+      </div>
+    </div>
+  </div>
 </form>
-<br>
-<form action="/store/<%= @store.id %>/delete" method="post">
-  <label>Delete store:</label>
+<form class="pa1 black-80" action="/store/<%= @store.id %>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit" name="button">Delete</button>
+  <div class="measure">
+    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f4 dib" type="submit" value="Delete">
+    <small id="name-desc" class="f4 black-60 db mb2">Delete the store</small>
+  </div>
 </form>

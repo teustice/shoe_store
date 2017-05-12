@@ -3,7 +3,7 @@ require "spec_helper"
 describe("the /store/new path", {:type => :feature}) do
   it("creates a new store and verify's it's presence on the '/' path") do
     visit("/")
-    click_link("Add a store")
+    click_link("New Distributor")
     fill_in("name", :with => "Nike")
     click_button("Create")
     expect(page).to have_content("Nike")
@@ -29,7 +29,7 @@ describe("the /store/:id", {:type => :feature}) do
   it("edits a store name") do
     visit("/")
     click_link("Nike")
-    click_link("Edit store")
+    click_link("edit-store")
     fill_in("name", :with => "the new nike")
     click_button("Edit")
     expect(page).to have_content("The New Nike")
@@ -38,7 +38,7 @@ describe("the /store/:id", {:type => :feature}) do
   it("deletes a store") do
     visit("/")
     click_link("Nike")
-    click_link("Edit store")
+    click_link("edit-store")
     click_button("Delete")
     expect(page).to have_no_content("Nike")
   end

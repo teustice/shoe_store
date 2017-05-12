@@ -3,6 +3,7 @@
   <head>
     <title></title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
     <link  rel='stylesheet' href="/css/styles.css" >
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -12,8 +13,8 @@
       <%= yield %>
       <div class="nav">
         <hr>
-        <a href="/">Home </a>|
-        <a href="/store/new"> Add a store</a>
+          <a class="f4 fw7 dib pa2 no-underline bg-animate bg-white hover-bg-light-green black" href="/">Home</a>
+          | <a class="f4 fw7 dib pa2 no-underline bg-animate bg-white hover-bg-light-green black" href="/store/new">New Distributor</a>
       </div>
     </div>
   </body>

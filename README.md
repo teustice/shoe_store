@@ -31,6 +31,8 @@ _If you have any questions, contact me at teustice@msn.com_
 
 * _HTML_
 * _CSS_
+* _Bootstrap_
+* _Tachyons_
 * _Ruby_
 * _Sinatra_
 * _Rspec_
