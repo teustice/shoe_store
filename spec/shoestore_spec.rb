@@ -20,9 +20,20 @@ describe Shoe do
   end
 
   describe('#monify') do
-    it "should format input to be currency" do
+    it "should format input to be a decimal in the database" do
       shoe = Shoe.create(brand: "some shoe", price: 50)
-      expect(shoe.price).to eq 50.00
+      shoe2 = Shoe.create(brand: "some shoe2", price: 50.15)
+      expect(shoe.price).to eq 50.0
+      expect(shoe2.price).to eq 50.15
+    end
+  end
+
+  describe('#display_price') do
+    it "should format input to be currency for display" do
+      shoe = Shoe.create(brand: "some shoe", price: 50)
+      shoe2 = Shoe.create(brand: "some shoe2", price: 50.15)
+      expect(shoe.display_price).to eq "$50.00"
+      expect(shoe2.display_price).to eq "$50.15"
     end
   end
 end

@@ -1,8 +1,14 @@
 <h1>Shoe Stores</h1>
 <br>
 
-<ul>
-  <% @stores.each do |store| %>
-    <a href="/store/<%= store.id %>"><li><%= store.name %></li></a>
-  <% end %>
-</ul>
+<% if @stores.any? %>
+  <ul>
+    <% @stores.each do |store| %>
+      <a href="/store/<%= store.id %>"><li><%= store.name %></li></a>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    <em>There are currently no stores. Would you like to <a href="/store/new">add one</a>?</em>
+  </p>
+<% end %>

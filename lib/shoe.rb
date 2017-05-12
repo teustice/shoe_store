@@ -7,13 +7,24 @@ class Shoe < ActiveRecord::Base
 
   define_method(:capitalize) do
     words = self.brand.split(" ")
+    excluded_words = ["and", "of", "And", "Of", "AND", "OF"]
     words.each do |word|
-      word.capitalize!()
+      if excluded_words.include?(word)
+        word.downcase!
+      else
+        word.capitalize!()
+      end
     end
     self.brand=(words.join(" "))
   end
 
   define_method(:monify) do
     self.price = self.price.to_f.round(2)
+  end
+
+  define_method(:display_price) do
+    fancy_price = self.price.to_s
+    fancy_price = "$" + ("%0.2f" % (fancy_price))
+    fancy_price
   end
 end

@@ -1,13 +1,17 @@
 <h1><%= @store.name %></h1>
 <a href="/store/<%= @store.id %>/edit">Edit store</a>
 <h3>Shoes available at this location:</h3>
-
-<ul>
-  <% @shoes.each do |shoe| %>
-    <a href="/store/<%= @store.id %>/shoe/<%= shoe.id %>"><li><%= shoe.brand %> | $<%= shoe.price%></li></a>
-  <% end %>
-</ul>
-
+<br>
+<% if @shoes.any? %>
+  <ul>
+    <% @shoes.each do |shoe| %>
+    <a href="/store/<%= @store.id %>/shoe/<%= shoe.id %>"><li><%= shoe.brand %> | <%= shoe.display_price%></li></a>
+    <% end %>
+  </ul>
+<% else %>
+  <p><em>There are currently no shoes at this location, add one below!</em></p>
+<% end %>
+<br><hr>
 <form action="/store/<%= @store.id %>/shoe/new" method="post">
   <input type="text" name="shoe_brand" placeholder="Enter a shoe brand" required>
   <input type="text" name="shoe_price" placeholder="Enter the shoe price" required>
