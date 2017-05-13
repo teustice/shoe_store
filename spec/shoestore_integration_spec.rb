@@ -10,6 +10,16 @@ describe("the /store/new path", {:type => :feature}) do
   end
 end
 
+describe("the /shoe/new path", {:type => :feature}) do
+  it("creates a new shoe") do
+    visit("/")
+    click_link("New Shoe Brand")
+    fill_in("brand", :with => "Converse")
+    fill_in("price", :with => "40")
+    click_button("create")
+  end
+end
+
 describe("the /store/:id", {:type => :feature}) do
   it("goes to a specific stores page") do
     visit("/")
@@ -17,11 +27,10 @@ describe("the /store/:id", {:type => :feature}) do
     expect(page).to have_content("Nike")
   end
 
-  it("adds a shoe to the store") do
+  it("adds a shoe to a store") do
     visit("/")
     click_link("Nike")
-    fill_in("shoe_brand", :with => "Converse")
-    fill_in("shoe_price", :with => "40")
+    page.select 'Converse', :from => 'shoe-select'
     click_button("Add shoe")
     expect(page).to have_content("Converse")
   end
@@ -48,8 +57,7 @@ describe("the /store/shoe path", {:type => :feature}) do
   it("goes to a shoe page") do
     visit("/")
     click_link("Nike")
-    fill_in("shoe_brand", :with => "Converse")
-    fill_in("shoe_price", :with => "40")
+    page.select 'Converse', :from => 'shoe-select'
     click_button("Add shoe")
     click_link("Converse")
     expect(page).to have_content("Converse")
@@ -58,8 +66,7 @@ describe("the /store/shoe path", {:type => :feature}) do
   it("edits a shoe") do
     visit("/")
     click_link("Nike")
-    fill_in("shoe_brand", :with => "Converse")
-    fill_in("shoe_price", :with => "40")
+    page.select 'Converse', :from => 'shoe-select'
     click_button("Add shoe")
     click_link("Converse")
     fill_in("shoe_brand", :with => "The new Converse")
@@ -71,8 +78,7 @@ describe("the /store/shoe path", {:type => :feature}) do
   it("deletes a shoe") do
     visit("/")
     click_link("Nike")
-    fill_in("shoe_brand", :with => "Converse")
-    fill_in("shoe_price", :with => "40")
+    page.select 'Converse', :from => 'shoe-select'
     click_button("Add shoe")
     click_link("Converse")
     click_button("Delete")

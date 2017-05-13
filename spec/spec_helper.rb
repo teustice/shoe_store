@@ -13,6 +13,7 @@ require "./app"
 RSpec.configure do |config|
   config.before(:each) do
     Store.create(name: "Nike")
+    Shoe.create(brand: "Converse", price: 40)
   end
   config.after(:each) do
     Store.all.each do |d|

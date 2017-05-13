@@ -19,14 +19,12 @@
     <h3>Add a shoe to this location:</h3>
     <div class="mw8 center pt0 pb5 pv5-m pv1-ns">
       <div class="db dtc-ns v-mid-ns">
-        <label for="shoe_brand">Brand</label>
-        <input name="shoe_brand" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
-        <small id="name-desc" class="f4 black-60 db mb2">Enter a shoe brand</small>
-      </div>
-      <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
-        <label for="price">Price</label>
-        <input name="shoe_price" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
-        <small id="name-desc" class="f4 black-60 db mb2">Enter a shoe price</small>
+        <select name="shoe-select">
+          </option>
+          <% @all_shoes.each do |shoe| %>
+            <option value="<%= shoe.id %>"><%= shoe.brand %></option>
+          <% end %>
+        </select>
       </div>
       <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
         <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f4 dib" type="submit" value="Add shoe">

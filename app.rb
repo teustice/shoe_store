@@ -18,20 +18,31 @@ post "/store/new" do
   redirect "/"
 end
 
+#ADD SHOE
+get "/shoe/new" do
+  erb :shoe_new
+end
+
+post "/shoe/new" do
+  brand = params['brand']
+  price = params['price']
+  Shoe.find_or_create_by(brand: brand, price: price)
+  redirect "/"
+end
+
 #STORE PAGE
 get "/store/:id" do
   @store = Store.find(params['id'])
   @shoes = @store.shoes
+  @all_shoes = Shoe.all
   erb :store
 end
 
-#ADD SHOE
+#ADD SHOE TO STORE
 post '/store/:id/shoe/new' do
   store = Store.find(params['id'])
-  brand = params['shoe_brand']
-  price = params['shoe_price']
-  new_shoe = Shoe.find_or_create_by(brand: brand, price: price)
-  store.shoes << new_shoe;
+  shoe = Shoe.find(params['shoe-select'])
+  store.shoes << shoe;
   redirect "/store/#{store.id}"
 end
 
